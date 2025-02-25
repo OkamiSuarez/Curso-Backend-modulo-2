@@ -1,0 +1,21 @@
+<h1>Inicio de sesion</h1>
+
+<form action="/api/sessions/login" method="POST">
+
+        <label for="email">Email:</label>
+    <input type="email" name="email" required>
+    <br><br>
+
+        <label for="password">Contrasena </label>
+    <input type="password" name="password" required>
+    <br><br>
+
+    <button type="submit">Ingresar</button>
+</form>
+
+{{!-- boton para identificarse con github
+<a href="/api/sessions/github">Login con github</a> --}}
+
+{{!-- boton para identificarse con google --}}
+
+<a href="/api/sessions/google"></a>
