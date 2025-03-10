@@ -31,54 +31,58 @@ TEMAS
 // console.log(process.argv)
 
 // levantando el server
-// import express from "express";
-// const app = express()
-// import configObject from "./config/config.js";
-// import mongoose from "mongoose";
-// import UserModel from "../src/models/usuario.model.js"
+import express from "express";
+const app = express()
+import configObject from "./config/config.js";
+import mongoose from "mongoose";
+import UserModel from "./models/usuario.model.js"
 
-// const {mongo_url,puerto} = configObject
+const {mongo_url,puerto} = configObject
 
-// mongoose.connect(mongo_url)
-//     .then(()=>console.log('conectado a la db'))
-//     .catch((error)=>console.log('error mortal ' + error))
+mongoose.connect(mongo_url)
+    .then(()=>console.log('conectado a la db'))
+    .catch((error)=>console.log('error mortal ' + error))
 
 
-// app.get('/', async(req,res)=>{
-//     // res.send('hola que hace')
-//     try {
-//         const usuarios = await UserModel.find()
-//         res.send(usuarios)
-//     } catch (error) {
-//         res.status(500).send('error terrible ' + error)
-//     }
+app.get('/', async(req,res)=>{
+    // res.send('hola que hace')
+    try {
+        const usuarios = await UserModel.find()
+        res.send(usuarios)
+    } catch (error) {
+        res.status(500).send('error terrible ' + error)
+    }
+})
+
+app.listen(puerto,()=> console.log('todo funciona'))
+
+
+
+
+
+// // listeners
+// // process.on() permite registrar listeners para eventos especificos en ejecucion
+
+// // algunos de los mas conocidos 
+// // exit
+//     // ejecuta codigo antes de la finalizacion del proceso
+// process.on("exit",(code)=>{
+//     // console.log('este codigo se ejecuta antes de la finalizacion del proceso')
+//     console.log('finalizamos con el siguiente codigo ' +code)
 // })
 
-// app.listen(puerto,()=> console.log('todo funciona'))
+// console.log('y esto cuando?')
 
-// listeners
-// process.on() permite registrar listeners para eventos especificos en ejecucion
+// // uncaught exception atrapa alguna excepcion no considerada en algun catch
 
-// algunos de los mas conocidos 
-// exit
-    // ejecuta codigo antes de la finalizacion del proceso
-process.on("exit",(code)=>{
-    // console.log('este codigo se ejecuta antes de la finalizacion del proceso')
-    console.log('finalizamos con el siguiente codigo ' +code)
-})
+// // generamos un error para determinar esto
 
-console.log('y esto cuando?')
+// process.on("uncaughtException",(error)=>{
+//     console.log('se capturo un error ', error)
+//     process.exitCode = 1
+// })
 
-// uncaught exception atrapa alguna excepcion no considerada en algun catch
+// firulais()
+// // esta linea sirve para registrar un error pero no reemplaza el trycatch por que en caso de error la ejecucion se detiene
 
-// generamos un error para determinar esto
-
-process.on("uncaughtException",(error)=>{
-    console.log('se capturo un error ', error)
-    process.exitCode = 1
-})
-
-firulais()
-// esta linea sirve para registrar un error pero no reemplaza el trycatch por que en caso de error la ejecucion se detiene
-
-// si en algun punto se comete un error 
+// // si en algun punto se comete un error 

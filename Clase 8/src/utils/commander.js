@@ -13,6 +13,6 @@ program
 program.parse()
 
 // con esto se pueden ver todas las opciones configuradas
-console.log("opciones", program.opts())
+// console.log("opciones", program.opts())
 
 export default program
