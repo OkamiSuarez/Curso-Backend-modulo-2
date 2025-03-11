@@ -1,6 +1,6 @@
 // inmmportando el juguete services
 import JugueteService from "../services/juguetes.services.js"
-import JugueteService from "../services/juguetes.services.js"
+// import JugueteService from "../services/juguetes.services.js"
 const jugueteService = new JugueteService()
 
 class JugueteController{
@@ -14,9 +14,10 @@ class JugueteController{
     }
     async obtenerJuguetes(req,res){
         try {
-            const juguetes.
+            const juguetes = await jugueteService.obtenerJuguete()
+            res.json(juguetes)
         } catch (error) {
-            
+            res.status(500).json({error:error.message})
         }
     }
 }
