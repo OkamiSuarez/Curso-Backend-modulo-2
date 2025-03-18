@@ -1,0 +1,12 @@
+[
+  {
+    "nombre": "Horno fachero en FS",
+    "categoria": "Fachero",
+    "precio": 1
+  },
+  {
+    "nombre": "Horno fachero",
+    "categoria": "Fachero",
+    "precio": 1
+  }
+]
